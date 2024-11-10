@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TE QUIERO MUCHO MIAMOR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #1b4e9a;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4a148c;
+        }
+        /* Estilo para el fondo de pantalla completa */
+        #fullscreen-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        #fullscreen-bg img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        #fullscreen-bg.show {
+            display: flex;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TE QUIERO MUCHO MIAMOR</h1>
+        <button id="show-bouquet-btn">Haz clic aquí</button>
+    </div>
+
+    <!-- Fondo para el modo pantalla completa -->
+    <div id="fullscreen-bg">
+        <img src="ramo_violetas.png" alt="Ramo de Violetas">
+    </div>
+
+    <script>
+        document.getElementById("show-bouquet-btn").addEventListener("click", function() {
+            const fullscreenBg = document.getElementById("fullscreen-bg");
+            fullscreenBg.classList.add("show");
+        });
+
+        // Al hacer clic en la imagen en pantalla completa, se oculta de nuevo
+        document.getElementById("fullscreen-bg").addEventListener("click", function() {
+            this.classList.remove("show");
+        });
+    </script>
+</body>
+</html>
